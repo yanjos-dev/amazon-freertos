@@ -206,8 +206,16 @@ OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t * const C )
     {
         if( C->pxSignature != NULL )
         {
+#if ( configOTA_ENABLE_CODE_SIGNATURE_VERIFICATION )
             /* Verify the file signature, close the file and return the signature verification result. */
             eResult = prvPAL_CheckFileSignature( C );
+#else
+			/* Code signature verification is disabled. */
+
+			OTA_LOG_L1("[%s] Code signture verification is disabled on OTA config , see configOTA_ENABLE_CODE_SIGNATURE_VERIFICATION .\r\n", OTA_METHOD_NAME);
+
+			eResult = kOTA_Err_None;
+#endif
         }
         else
         {

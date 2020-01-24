@@ -139,5 +139,16 @@
 
 #define configOTA_PRIMARY_DATA_PROTOCOL     ( OTA_DATA_OVER_MQTT )
 
+  /**
+   * @brief Enable code signature verfication.
+   * 
+   * Enable code signature verification on the firmware image downloaded while performing OTA.
+   * If this is set to 0 no code signature verification will be performaed on the image and 
+   * if this is set to a 1 code siganture verification will always be performed on the new
+   * image and based on its result image will be accepted or rejected.
+   */
+
+#define configOTA_ENABLE_CODE_SIGNATURE_VERIFICATION   ( 0 ) 
+
 
 #endif /* _AWS_OTA_AGENT_CONFIG_H_ */
