@@ -33,7 +33,8 @@
 #ifndef __LWIPOPTS_FREERTOS_H__
 #define __LWIPOPTS_FREERTOS_H__
 
-#include "FreeRTOSConfig.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 /* tcpip_thread should run on HIGH priority */
 #define TCPIP_THREAD_NAME             "lwIP"
