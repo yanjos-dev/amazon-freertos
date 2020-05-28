@@ -83,7 +83,9 @@ COMPONENT_OBJEXCLUDE := $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_p
                         $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_posix/source/FreeRTOS_POSIX_pthread_mutex.o \
                         $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_posix/source/FreeRTOS_POSIX_sched.o \
                         $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_posix/source/FreeRTOS_POSIX_semaphore.o \
-                        $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_posix/source/FreeRTOS_POSIX_unistd.o
+                        $(AMAZON_FREERTOS_ARF_PLUS_DIR)/standard/freertos_plus_posix/source/FreeRTOS_POSIX_unistd.o \
+                        $(AMAZON_FREERTOS_3RD_PARTY_DIR)/tinycbor/open_memstream.o \
+                        $(AMAZON_FREERTOS_3RD_PARTY_DIR)/tinycbor/cbortojson.o
 
 COMPONENT_PRIV_INCLUDEDIRS := $(AMAZON_FREERTOS_ABSTRACTIONS_DIR)/pkcs11 \
                               $(AMAZON_FREERTOS_ARF_PORTS)/ota \
@@ -92,6 +94,7 @@ COMPONENT_PRIV_INCLUDEDIRS := $(AMAZON_FREERTOS_ABSTRACTIONS_DIR)/pkcs11 \
 
 lib/greengrass/aws_greengrass_discovery.o: CFLAGS+=-Wno-format
 lib/common/aws_logging_task_dynamic_buffers.o: CFLAGS+=-Wno-format -Wno-uninitialized
+libraries/3rdparty/tinycbor/cborvalidation.o: CFLAGS += -Wno-maybe-uninitialized
 
 ifdef AMAZON_FREERTOS_ENABLE_UNIT_TEST
 COMPONENT_SRCDIRS += ../.. \
