@@ -1,0 +1,57 @@
+From b6dc8a1353739e053c01ebf4a241d1829a1c7009 Mon Sep 17 00:00:00 2001
+From: Joshua Yan <52796499+yanjos-dev@users.noreply.github.com>
+Date: Fri, 5 Jun 2020 12:19:00 -0700
+Subject: [PATCH 3/5] Fix cbror_ntohs, cbor_ntohl and cbor_ntohll
+
+* Add a default implementations for cbor_ntohs,
+  cbor_htons, cbor_ntohl, cbor_htonl,
+  cbor_ntohll and cbor_htonll
+* Add a condition for the __little_endian__ macro
+---
+ src/compilersupport_p.h | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
+
+diff --git a/src/compilersupport_p.h b/src/compilersupport_p.h
+index f96b0b4..81689dd 100644
+--- a/src/compilersupport_p.h
++++ b/src/compilersupport_p.h
+@@ -147,14 +147,18 @@
+ #  endif
+ #endif
+ #ifndef cbor_ntohs
+-#  include <arpa/inet.h>
+-#  define cbor_ntohs        ntohs
+-#  define cbor_htons        htons
++#   define cbor_ntohs(x) (((uint16_t)x >> 8) | ((uint16_t)x << 8))
++#   define cbor_htons    cbor_ntohs
++//#  include <netinet/in.h>
++//#  define cbor_ntohs        ntohs
++//#  define cbor_htons        htons
+ #endif
+ #ifndef cbor_ntohl
+-#  include <arpa/inet.h>
+-#  define cbor_ntohl        ntohl
+-#  define cbor_htonl        htonl
++//#  include <netinet/in.h>
++//#  define cbor_ntohl        ntohl
++//#  define cbor_htonl        htonl
++#  	define cbor_ntohl(x)     ((((uint32_t)x >> 24) & 0xff) | (((uint32_t)x >> 8) & 0xff00) | (((uint32_t)x & 0xff00) << 8) | (((uint32_t)x & 0xff) << 24))
++#  	define cbor_htonl        cbor_ntohl
+ #endif
+ #ifndef cbor_ntohll
+ #  define cbor_ntohll       ntohll
+@@ -173,7 +177,10 @@
+     (defined(BYTE_ORDER) && defined(LITTLE_ENDIAN) && BYTE_ORDER == LITTLE_ENDIAN) || \
+     defined(_LITTLE_ENDIAN) || defined(__LITTLE_ENDIAN__) || defined(__ARMEL__) || defined(__MIPSEL__) || \
+     defined(__i386) || defined(__i386__) || defined(__x86_64) || defined(__x86_64__) || defined(__amd64)
+-#      define ntohll(x)       ((ntohl((uint32_t)(x)) * UINT64_C(0x100000000)) + (ntohl((x) >> 32)))
++#      define ntohll(x)       ((cbor_ntohl((uint32_t)(x)) * UINT64_C(0x100000000)) + (cbor_ntohl((x) >> 32)))
++#      define htonll          ntohll
++#	 elif __little_endian__ == 1
++#      define ntohll(x)       ((cbor_ntohl(((uint32_t)(x))) * UINT64_C(0x100000000)) + (cbor_ntohl(((x) >> 32))))
+ #      define htonll          ntohll
+ #    else
+ #      error "Unable to determine byte order!"
+-- 
+2.22.0.windows.1
+
