@@ -214,7 +214,7 @@ static int _discoverGreengrassCore( const IotNetworkInterface_t * pNetworkInterf
     /* Demonstrate automated connection. */
     IotLogInfo( "Attempting automated selection of Greengrass device\r\n" );
 
-    if( GGD_GetGGCIPandCertificate( clientcredentialMQTT_BROKER_ENDPOINT,
+    if( GGD_GetGGCIPandCertificate( clientcredentialMQTT_BROKER_ENDPOINT_NEW,
                                     clientcredentialGREENGRASS_DISCOVERY_PORT,
                                     clientcredentialIOT_THING_NAME,
                                     pcJSONFile,

@@ -194,7 +194,7 @@ BaseType_t prvTestDeleteCallback( const char * const pcThingName,
 void TEST_SHADOW_Connect_Helper( MQTTAgentConnectParams_t * xConnectParams,
                                  ShadowClientHandle_t * pxShadowClientHandle )
 {
-    xConnectParams->pcURL = clientcredentialMQTT_BROKER_ENDPOINT;
+    xConnectParams->pcURL = clientcredentialMQTT_BROKER_ENDPOINT_NEW;
     xConnectParams->xURLIsIPAddress = pdFALSE; /* Deprecated. */
     xConnectParams->usPort = clientcredentialMQTT_BROKER_PORT;
 

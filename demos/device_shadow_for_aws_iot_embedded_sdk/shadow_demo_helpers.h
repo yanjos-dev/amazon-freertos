@@ -45,7 +45,7 @@
  */
 
 #ifndef democonfigMQTT_BROKER_ENDPOINT
-    #define democonfigMQTT_BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT
+    #define democonfigMQTT_BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT_NEW
 #endif
 
 #ifndef democonfigCLIENT_IDENTIFIER

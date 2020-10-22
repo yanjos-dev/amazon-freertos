@@ -178,7 +178,7 @@ CK_RV prvProvisionRootCA( void )
 
     /* Use either Verisign or Starfield root CA,
      * depending on whether this is an ATS endpoint. */
-    if( strstr( clientcredentialMQTT_BROKER_ENDPOINT, "-ats.iot" ) == NULL )
+    if( strstr( clientcredentialMQTT_BROKER_ENDPOINT_NEW, "-ats.iot" ) == NULL )
     {
         pucRootCA = ( uint8_t * ) tlsVERISIGN_ROOT_CERTIFICATE_PEM;
         ulRootCALength = tlsVERISIGN_ROOT_CERTIFICATE_LENGTH;
