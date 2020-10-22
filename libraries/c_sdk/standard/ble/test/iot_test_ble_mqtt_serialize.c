@@ -146,7 +146,7 @@ TEST( BLE_Unit_MQTT_Serialize, SerializeCONNECT )
         xResult = IOT_BLE_MESG_DECODER.find( &xDecoderObj, IOT_BLE_MQTT_BROKER_EP, &xValue );
         TEST_ASSERT_EQUAL( IOT_SERIALIZER_SUCCESS, xResult );
         TEST_ASSERT_EQUAL( IOT_SERIALIZER_SCALAR_TEXT_STRING, xValue.type );
-        TEST_ASSERT_EQUAL( 0, strncmp( ( const char * ) xValue.u.value.u.string.pString, clientcredentialMQTT_BROKER_ENDPOINT_NEW, xValue.u.value.u.string.length ) );
+        TEST_ASSERT_EQUAL( 0, strncmp( ( const char * ) xValue.u.value.u.string.pString, TEST_ENDPOINT_NEW_STACK, xValue.u.value.u.string.length ) );
 
         xValue.u.value.u.signedInt = 0;
         xResult = IOT_BLE_MESG_DECODER.find( &xDecoderObj, IOT_BLE_MQTT_CLEAN_SESSION, &xValue );

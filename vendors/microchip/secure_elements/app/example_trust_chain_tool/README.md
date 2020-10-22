@@ -194,7 +194,7 @@ This file needs to be copied to the demos/common/include directory of the
 demo project to replace the existing blank file.
 
 ### Update aws_clientcredential.h file
-Update clientcredentialMQTT_BROKER_ENDPOINT_NEW[] and clientcredentialIOT_THING_NAME
+Update TEST_ENDPOINT_NEW_STACK[] and clientcredentialIOT_THING_NAME
 
 Use the Thing Name from earlier in the instructions.  You can find your endpoint 
 by calling

@@ -61,7 +61,7 @@ TEST( GGD_Helper_System, SecureConnect_Connect_Disconnect )
 
     xHostAddressData.pcCertificate = NULL;
     xHostAddressData.ulCertificateSize = 0;
-    xHostAddressData.pcHostAddress = clientcredentialMQTT_BROKER_ENDPOINT_NEW;
+    xHostAddressData.pcHostAddress = TEST_ENDPOINT_NEW_STACK;
     xHostAddressData.usPort = clientcredentialMQTT_BROKER_PORT;
 
     if( TEST_PROTECT() )
@@ -119,7 +119,7 @@ TEST( GGD_Helper_System, SecureConnect_Send )
 
     xHostAddressData.pcCertificate = NULL;
     xHostAddressData.ulCertificateSize = 0;
-    xHostAddressData.pcHostAddress = clientcredentialMQTT_BROKER_ENDPOINT_NEW;
+    xHostAddressData.pcHostAddress = TEST_ENDPOINT_NEW_STACK;
     xHostAddressData.usPort = clientcredentialMQTT_BROKER_PORT;
 
     if( TEST_PROTECT() )

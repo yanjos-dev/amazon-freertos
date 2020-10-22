@@ -622,7 +622,7 @@ static BaseType_t prvAwsIotBrokerConnectHelper( Socket_t xSocket,
     BaseType_t xResult = SOCKETS_SOCKET_ERROR;
 
     /* Resolve the broker endpoint to an IP address. */
-    pxHostAddress->ulAddress = SOCKETS_GetHostByName( clientcredentialMQTT_BROKER_ENDPOINT_NEW );
+    pxHostAddress->ulAddress = SOCKETS_GetHostByName( TEST_ENDPOINT_NEW_STACK );
 
     if( pxHostAddress->ulAddress != 0 )
     {
@@ -651,8 +651,8 @@ static BaseType_t prvAwsIotBrokerConnectHelper( Socket_t xSocket,
             ( void ) SOCKETS_SetSockOpt( xSocket,
                                          0, /* Level - Unused. */
                                          SOCKETS_SO_SERVER_NAME_INDICATION,
-                                         clientcredentialMQTT_BROKER_ENDPOINT_NEW,
-                                         sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
+                                         TEST_ENDPOINT_NEW_STACK,
+                                         sizeof( TEST_ENDPOINT_NEW_STACK ) );
         }
     }
 
@@ -2467,13 +2467,13 @@ static void prvServerDomainName( void )
     SocketsSockaddr_t xAwsBrokerAddress;
 
     /* TODO: Generically change this. */
-    char cRealAddress[ sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) ];
-    char cFakeAddress[ sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) ];
+    char cRealAddress[ sizeof( TEST_ENDPOINT_NEW_STACK ) ];
+    char cFakeAddress[ sizeof( TEST_ENDPOINT_NEW_STACK ) ];
 
-    memcpy( cRealAddress, clientcredentialMQTT_BROKER_ENDPOINT_NEW, sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
-    memcpy( cFakeAddress, cRealAddress, sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
+    memcpy( cRealAddress, TEST_ENDPOINT_NEW_STACK, sizeof( TEST_ENDPOINT_NEW_STACK ) );
+    memcpy( cFakeAddress, cRealAddress, sizeof( TEST_ENDPOINT_NEW_STACK ) );
     /* .com -> .cpm */
-    cFakeAddress[ sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) - 3 ]++;
+    cFakeAddress[ sizeof( TEST_ENDPOINT_NEW_STACK ) - 3 ]++;
 
 
     tcptestPRINTF( ( "Starting %s.\r\n", __FUNCTION__ ) );
@@ -2620,7 +2620,7 @@ static void prvTriggerWrongRootCA( void )
     TEST_ASSERT_EQUAL_INT32_MESSAGE( SOCKETS_ERROR_NONE, xResult, "SetSockOpt to require TLS failed" );
 
     /* Echo requests are sent to the secure echo server and port. */
-    xAwsIotBrokerAddress.ulAddress = SOCKETS_GetHostByName( clientcredentialMQTT_BROKER_ENDPOINT_NEW );
+    xAwsIotBrokerAddress.ulAddress = SOCKETS_GetHostByName( TEST_ENDPOINT_NEW_STACK );
     TEST_ASSERT_NOT_EQUAL_MESSAGE( 0, xAwsIotBrokerAddress.ulAddress, "DNS look up failed." );
     xAwsIotBrokerAddress.usPort = SOCKETS_htons( clientcredentialMQTT_BROKER_PORT );
 
@@ -3298,7 +3298,7 @@ TEST( Full_TCP_Extended, SOCKETS_dns_multiple_addresses )
      */
     for( i = 0; ( i < 120 ) && ( ulNumUniqueIPAddresses < dnstestNUM_UNIQUE_IP_ADDRESSES ); i++ )
     {
-        ulIPAddress = SOCKETS_GetHostByName( clientcredentialMQTT_BROKER_ENDPOINT_NEW );
+        ulIPAddress = SOCKETS_GetHostByName( TEST_ENDPOINT_NEW_STACK );
 
         for( j = 0, ulUnique = 1; j < ulNumUniqueIPAddresses; j++ )
         {
@@ -3319,7 +3319,7 @@ TEST( Full_TCP_Extended, SOCKETS_dns_multiple_addresses )
     configPRINTF( ( "%s: identified %d different IP addresses for %s.\r\n",
                     __FUNCTION__,
                     ulNumUniqueIPAddresses,
-                    clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
+                    TEST_ENDPOINT_NEW_STACK ) );
 
     /* Require a minimum number of IP addresses for AWS IoT Core endpoints */
     TEST_ASSERT_GREATER_OR_EQUAL_UINT32_MESSAGE( dnstestNUM_UNIQUE_IP_ADDRESSES, ulNumUniqueIPAddresses, "Incorrect number of IP addresses per entry" );
@@ -3388,8 +3388,8 @@ TEST( Full_TCP, AFQP_SECURE_SOCKETS_SetSecureOptionsAfterConnect )
         xResult = SOCKETS_SetSockOpt( xSocket,
                                       0, /* Level - Unused. */
                                       SOCKETS_SO_SERVER_NAME_INDICATION,
-                                      clientcredentialMQTT_BROKER_ENDPOINT_NEW,
-                                      sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
+                                      TEST_ENDPOINT_NEW_STACK,
+                                      sizeof( TEST_ENDPOINT_NEW_STACK ) );
         TEST_ASSERT_LESS_THAN_MESSAGE( SOCKETS_ERROR_NONE, xResult, "SNI setup after connect succeed when fail was expected." );
 
         /* Try to set Trusted certificate option after connect. */

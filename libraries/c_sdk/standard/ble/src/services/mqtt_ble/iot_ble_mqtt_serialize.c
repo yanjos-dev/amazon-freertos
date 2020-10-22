@@ -147,8 +147,8 @@ static IotSerializerError_t _serializeConnect( const MQTTConnectInfo_t * pConnec
     if( _IS_VALID_SERIALIZER_RET( error, pBuffer ) )
     {
         data.type = IOT_SERIALIZER_SCALAR_TEXT_STRING;
-        data.value.u.string.pString = ( uint8_t * ) clientcredentialMQTT_BROKER_ENDPOINT_NEW;
-        data.value.u.string.length = strlen( clientcredentialMQTT_BROKER_ENDPOINT_NEW );
+        data.value.u.string.pString = ( uint8_t * ) TEST_ENDPOINT_NEW_STACK;
+        data.value.u.string.length = strlen( TEST_ENDPOINT_NEW_STACK );
         error = IOT_BLE_MESG_ENCODER.appendKeyValue( &connectMap, IOT_BLE_MQTT_BROKER_EP, data );
     }
 

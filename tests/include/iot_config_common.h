@@ -173,7 +173,7 @@
 #define IOT_LOG                           "iot_logging_setup.h"
 
 /* Cloud endpoint to which the device connects to. */
-#define IOT_CLOUD_ENDPOINT                clientcredentialMQTT_BROKER_ENDPOINT_NEW
+#define IOT_CLOUD_ENDPOINT                "zhvhbc1jzwxs-dual-cell-r-ats.iot.us-west-2.amazonaws.com"
 
 /* Certificate for the device.*/
 #define IOT_DEVICE_CERTIFICATE            keyCLIENT_CERTIFICATE_PEM

@@ -32,7 +32,7 @@
  * @todo Set this to the fully-qualified DNS name of your MQTT broker.
  */
 #define clientcredentialMQTT_BROKER_ENDPOINT             ""
-#define clientcredentialMQTT_BROKER_ENDPOINT_NEW         "zhvhbc1jzwxs-dual-cell-r-ats.iot.us-west-2.amazonaws.com"
+#define TEST_ENDPOINT_NEW_STACK         "zhvhbc1jzwxs-dual-cell-r-ats.iot.us-west-2.amazonaws.com"
 
 /*
  * @brief Host name.

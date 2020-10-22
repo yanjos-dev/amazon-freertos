@@ -72,7 +72,7 @@
 /* Compile time error for undefined configs. */
 
 #ifndef democonfigMQTT_BROKER_ENDPOINT
-    #define democonfigMQTT_BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT_NEW
+    #define democonfigMQTT_BROKER_ENDPOINT    TEST_ENDPOINT_NEW_STACK
 #endif
 
 /**

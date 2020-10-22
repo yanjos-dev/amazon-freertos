@@ -94,7 +94,7 @@
  */
 
 #ifndef BROKER_ENDPOINT
-    #define BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT_NEW
+    #define BROKER_ENDPOINT    TEST_ENDPOINT_NEW_STACK
 #endif
 
 #ifndef BROKER_PORT

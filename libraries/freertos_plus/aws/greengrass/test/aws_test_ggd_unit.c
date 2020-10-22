@@ -94,7 +94,7 @@ TEST( GGD_Unit, IsIPvalid )
         /** @brief Check IP is not filtered if correct IP is given.
          *  @{
          */
-        xStatus = test_prvIsIPvalid( clientcredentialMQTT_BROKER_ENDPOINT_NEW, sizeof( clientcredentialMQTT_BROKER_ENDPOINT_NEW ) );
+        xStatus = test_prvIsIPvalid( TEST_ENDPOINT_NEW_STACK, sizeof( TEST_ENDPOINT_NEW_STACK ) );
         TEST_ASSERT_TRUE( xStatus == pdTRUE );
         /** @}*/
     }

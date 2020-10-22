@@ -127,7 +127,7 @@
 /* Default connection parameters. */
 MQTTAgentConnectParams_t xDefaultConnectParameters =
 {
-    clientcredentialMQTT_BROKER_ENDPOINT_NEW,
+    TEST_ENDPOINT_NEW_STACK,
     mqttagentREQUIRE_TLS,
     pdFALSE,
     clientcredentialMQTT_BROKER_PORT,
