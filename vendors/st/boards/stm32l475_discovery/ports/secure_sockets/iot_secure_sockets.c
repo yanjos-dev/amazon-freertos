@@ -628,7 +628,7 @@ int32_t SOCKETS_Connect( Socket_t xSocket,
                     {
                         /* If we are not using the ATS endpoint, use the VeriSign root CA. Otherwise
                          * use the Starfield root CA. */
-                        if( strstr( clientcredentialMQTT_BROKER_ENDPOINT, "-ats.iot" ) == NULL )
+                        if( strstr( clientcredentialMQTT_BROKER_ENDPOINT_OLD, "-ats.iot" ) == NULL )
                         {
                             /* Store the default certificate. */
                             if( ES_WIFI_StoreCA( &( xWiFiModule.xWifiObject ),

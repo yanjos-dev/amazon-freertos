@@ -738,7 +738,7 @@ static void _onNetworkStateChangeCallback( uint32_t networkType,
 static void _initializeTCPIPCredentials( void )
 {
     #if TCPIP_NETWORK_ENABLED
-        tcpIPConnectionParams.pHostName = clientcredentialMQTT_BROKER_ENDPOINT;
+        tcpIPConnectionParams.pHostName = clientcredentialMQTT_BROKER_ENDPOINT_OLD;
         tcpIPConnectionParams.port = clientcredentialMQTT_BROKER_PORT;
 
         if( tcpIPConnectionParams.port == 443 )

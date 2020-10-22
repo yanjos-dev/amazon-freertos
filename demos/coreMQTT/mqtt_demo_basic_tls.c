@@ -77,7 +77,7 @@
  * @brief The MQTT broker endpoint used for this demo.
  */
 #ifndef democonfigMQTT_BROKER_ENDPOINT
-    #define democonfigMQTT_BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT
+    #define democonfigMQTT_BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT_OLD
 #endif
 
 /**

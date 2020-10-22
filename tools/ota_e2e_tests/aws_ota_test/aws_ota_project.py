@@ -222,12 +222,12 @@ class OtaAfrProject:
         """
         Updates aws_clientcredential.g for the AWS IoT endpoint defined in board.json
         args:
-            awsIotEndpoint(str): Sets clientcredentialMQTT_BROKER_ENDPOINT[]
+            awsIotEndpoint(str): Sets clientcredentialMQTT_BROKER_ENDPOINT_OLD[]
             awsIotEndpointPort(str): Optionally sets clientcredentialMQTT_BROKER_PORT, if specified.
         """
         self.__setIdentifierInFile(
             {
-                '#define clientcredentialMQTT_BROKER_ENDPOINT': '\"' + awsIotEndpoint + '\"',
+                '#define clientcredentialMQTT_BROKER_ENDPOINT_OLD': '\"' + awsIotEndpoint + '\"',
                 '#define clientcredentialMQTT_BROKER_PORT' : awsIotEndpointPort
             },
             os.path.join(self._projectRootDir, OtaAfrProject.CLIENT_CREDENTIAL_PATH)

@@ -124,7 +124,7 @@ static void prvSecureSocketClose( Socket_t xSocket )
 static void prvConnectWithProvisioning( ProvisioningParams_t * pxProvisioningParams,
                                         BaseType_t xConnectExpectedToSucceed )
 {
-    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT;
+    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT_OLD;
     uint16_t usAWSIoTPort = clientcredentialMQTT_BROKER_PORT;
     SocketsSockaddr_t xMQTTServerAddress = { 0 };
     Socket_t xSocket;
@@ -209,7 +209,7 @@ static void prvConnectWithProvisioning( ProvisioningParams_t * pxProvisioningPar
  * following. */
 static void prvExpectFailAfterDataSentWithProvisioning( ProvisioningParams_t * pxProvisioningParams )
 {
-    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT;
+    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT_OLD;
     uint16_t usAWSIoTPort = clientcredentialMQTT_BROKER_PORT;
     SocketsSockaddr_t xMQTTServerAddress = { 0 };
     Socket_t xSocket;
@@ -279,7 +279,7 @@ static void prvExpectFailAfterDataSentWithProvisioning( ProvisioningParams_t * p
 
 TEST( Full_TLS, AFQP_TLS_ConnectDefault )
 {
-    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT;
+    const char * pcAWSIoTAddress = clientcredentialMQTT_BROKER_ENDPOINT_OLD;
     uint16_t usAWSIoTPort = clientcredentialMQTT_BROKER_PORT;
     SocketsSockaddr_t xMQTTServerAddress = { 0 };
     Socket_t xSocket;

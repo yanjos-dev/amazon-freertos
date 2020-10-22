@@ -163,7 +163,7 @@
 #endif
 
 /* Cloud endpoint to which the device connects to. */
-#define IOT_CLOUD_ENDPOINT        clientcredentialMQTT_BROKER_ENDPOINT
+#define IOT_CLOUD_ENDPOINT        clientcredentialMQTT_BROKER_ENDPOINT_OLD
 
 /* Certificate for the device. */
 #define IOT_DEVICE_CERTIFICATE    keyCLIENT_CERTIFICATE_PEM

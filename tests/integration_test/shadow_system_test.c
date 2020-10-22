@@ -85,7 +85,7 @@
 /* Default values for configs. */
 
 #ifndef BROKER_ENDPOINT
-    #define BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT
+    #define BROKER_ENDPOINT    clientcredentialMQTT_BROKER_ENDPOINT_OLD
 #endif
 
 #ifndef BROKER_PORT

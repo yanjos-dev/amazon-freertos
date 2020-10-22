@@ -345,7 +345,7 @@ For instructions about how to run the Wi-Fi provisioning demo on your board, see
 
     `make flash monitor -j4`
 
--   If your device has trouble connecting to AWS IoT, open the `aws_clientcredential.h` file, and verify that the configuration variables are properly defined in the file. `clientcredentialMQTT_BROKER_ENDPOINT[]` should look like ``<1234567890123>-ats.iot.<us-east-1>.amazonaws.com``.
+-   If your device has trouble connecting to AWS IoT, open the `aws_clientcredential.h` file, and verify that the configuration variables are properly defined in the file. `clientcredentialMQTT_BROKER_ENDPOINT_OLD[]` should look like ``<1234567890123>-ats.iot.<us-east-1>.amazonaws.com``.
 - **JTAG Debugging is not supported on ESP-EYE**
 
 
