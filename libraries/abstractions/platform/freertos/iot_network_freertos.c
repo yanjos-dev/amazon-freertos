@@ -35,6 +35,8 @@
 /* Standard includes. */
 #include <string.h>
 
+#include "mbedtls_error.h"
+
 /* FreeRTOS includes. */
 #include "semphr.h"
 #include "event_groups.h"

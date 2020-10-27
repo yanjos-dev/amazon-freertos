@@ -44,6 +44,7 @@ if(TARGET AFR::secure_sockets::mcu_port)
     afr_module_dependencies(
         ${AFR_CURRENT_MODULE}
         PUBLIC
+            3rdparty::mbedtls
             AFR::secure_sockets
     )
 endif()
