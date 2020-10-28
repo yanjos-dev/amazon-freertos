@@ -21,7 +21,7 @@
 	url = https://github.com/ThrowTheSwitch/CMock.git
 [submodule "vendors/espressif/esp-idf"]
 	path = vendors/espressif/esp-idf
-	url = https://github.com/espressif/esp-afr-sdk.git
+	url = https://github.com/yanjos-dev/esp-afr-sdk.git
 	branch = release/v3.3
 [submodule "mbedtls"]
 	path = libraries/3rdparty/mbedtls
