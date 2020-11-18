@@ -531,7 +531,7 @@ static OTA_Err_t prvPAL_FileSignatureCheckFinal( OTA_FileContext_t * const C )
  * kOTA_Err_None is returned when aborting access to the open file was successful.
  * kOTA_Err_FileAbort is returned when aborting access to the open file context was unsuccessful.
  */
-OTA_Err_t prvPAL_Abort( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t   result = kOTA_Err_None;
     const struct flash_area *fap;

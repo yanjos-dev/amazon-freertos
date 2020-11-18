@@ -171,7 +171,7 @@ static void _esp_ota_ctx_close( OTA_FileContext_t * C )
 }
 
 /* Abort receiving the specified OTA update by closing the file. */
-OTA_Err_t prvPAL_Abort( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t ota_ret = kOTA_Err_FileAbort;
 

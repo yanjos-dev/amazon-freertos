@@ -283,9 +283,9 @@ OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * C )
  * @brief Aborts access to an existing open file. This is only valid after a job
  * starts successfully.
  */
-OTA_Err_t prvPAL_Abort( OTA_FileContext_t * C )
+OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_Abort" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_Abort_t" );
 
     /* Check for null file handle since we may call this before a file is actually opened. */
     prvContextClose( C );

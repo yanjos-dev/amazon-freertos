@@ -297,9 +297,9 @@ OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_Abort( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_Abort" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_Abort_t" );
     OTA_LOG_L1("[%s] is called.\r\n", OTA_METHOD_NAME);
 
     OTA_Err_t eResult = kOTA_Err_None;

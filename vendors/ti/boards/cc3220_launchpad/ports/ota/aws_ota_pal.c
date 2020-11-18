@@ -130,7 +130,7 @@ static void prvRollbackRxFile(OTA_FileContext_t *C)
 
 /* Abort access to an existing open file. This is only valid after a job starts successfully. */
 
-OTA_Err_t prvPAL_Abort(OTA_FileContext_t *C)
+OTA_Err_t ota_pal_Abort_t(OTA_FileContext_t *C)
 {
     /* Use this signature to abort a file transfer on the TI CC3220SF platform. */
     static _u8 pcTI_AbortSig[] = "A";
