@@ -189,7 +189,7 @@ OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 }
 
 /* Attempt to create a new receive file for the file chunks as they come in. */
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
 {
     if( ( NULL == C ) || ( NULL == C->pucFilePath ) )
     {

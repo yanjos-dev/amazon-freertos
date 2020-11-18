@@ -229,9 +229,9 @@ static volatile uint32_t gs_header_flashing_task;
 
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CreateFileForRx" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CreateFileForRx_t" );
     OTA_LOG_L1("[%s] is called.\r\n", OTA_METHOD_NAME);
     OTA_LOG_L1("Compiled in [%s] [%s].\r\n", __DATE__, __TIME__);
     OTA_Err_t eResult = kOTA_Err_Uninitialized;

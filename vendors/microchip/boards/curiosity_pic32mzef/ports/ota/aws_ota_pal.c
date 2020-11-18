@@ -234,9 +234,9 @@ static void prvPAL_WatchdogDisable( void )
  * @brief Attempts to create a new receive file to write the file chunks to as
  * they come in.
  */
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CreateFileForRx" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CreateFileForRx_t" );
 
     int32_t lErr = MCHP_ERR_NONE;
     OTA_Err_t xReturnCode = kOTA_Err_Uninitialized;

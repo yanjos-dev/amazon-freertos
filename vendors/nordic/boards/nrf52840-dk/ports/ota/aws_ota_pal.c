@@ -178,9 +178,9 @@ OTA_Err_t prvErasePages(size_t xFrom, size_t xTo)
     return xStatus;
 }
 
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CreateFileForRx" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CreateFileForRx_t" );
     ret_code_t xErrCode;
     C->lFileHandle = prvNextFreeFileHandle;
     OTA_Err_t xStatus = kOTA_Err_None;
@@ -237,7 +237,7 @@ int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
     DEFINE_OTA_METHOD_NAME( "prvPAL_WriteBlock" );
 
     /* We assume that the flash is already erased by this address (it should be, as we erase it in the
-     * prvPAL_CreateFileForRx, but the second write to the same position can break this invariant.
+     * ota_pal_CreateFileForRx_t, but the second write to the same position can break this invariant.
      * Anyway, the OTA procedure must not try to write to the same addresses */
     ret_code_t xErrCode = prvWriteFlash( otapalSECOND_BANK_START + otapalDESCRIPTOR_SIZE + ulOffset, ulBlockSize, pacData );
 

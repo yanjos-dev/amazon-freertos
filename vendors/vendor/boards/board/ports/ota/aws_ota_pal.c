@@ -80,9 +80,9 @@ static uint8_t * prvPAL_ReadAndAssumeCertificate( const uint8_t * const pucCertN
 
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CreateFileForRx" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CreateFileForRx_t" );
 
     /* FIX ME. */
     return kOTA_Err_RxFileCreateFailed;

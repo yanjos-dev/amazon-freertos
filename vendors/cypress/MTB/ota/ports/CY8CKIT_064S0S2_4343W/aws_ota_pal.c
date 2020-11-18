@@ -585,7 +585,7 @@ OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
  * kOTA_Err_BootInfoCreateFailed is returned if the bootloader information file creation fails.
  * kOTA_Err_RxFileCreateFailed is returned for other errors creating the file in the device's non-volatile memory.
  */
-OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t   result = kOTA_Err_None;
     const struct flash_area *fap;
@@ -624,7 +624,7 @@ OTA_Err_t prvPAL_CreateFileForRx( OTA_FileContext_t * const C )
  *
  * @note The input OTA_FileContext_t C is checked for NULL by the OTA agent before this
  * function is called. This function is called only at the end of block ingestion.
- * prvPAL_CreateFileForRx() must succeed before this function is reached, so
+ * ota_pal_CreateFileForRx_t() must succeed before this function is reached, so
  * C->lFileHandle(or C->pucFile) is never NULL.
  * The certificate path on the device is a required job document field in the OTA Agent,
  * so C->pucCertFilepath is never NULL.

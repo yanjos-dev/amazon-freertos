@@ -164,9 +164,9 @@ OTA_Err_t ota_pal_Abort_t(OTA_FileContext_t *C)
 
 /* Attempt to create a new receive file to write the file chunks to as they come in. */
 
-OTA_Err_t prvPAL_CreateFileForRx(OTA_FileContext_t *C)
+OTA_Err_t ota_pal_CreateFileForRx_t(OTA_FileContext_t *C)
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_CreateFileForRx");
+    DEFINE_OTA_METHOD_NAME("ota_pal_CreateFileForRx_t");
 
     _u32        ulToken = OTA_VENDOR_TOKEN;     /* TI platform requires file tokens. We use a vendor token. */
     uint32_t    ulFlags;                        /* Flags used when opening the OTA FW image file. */
