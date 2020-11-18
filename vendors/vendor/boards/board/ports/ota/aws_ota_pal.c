@@ -149,9 +149,10 @@ OTA_Err_t prvPAL_ResetDevice( void )
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_ActivateNewImage( void )
+OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_ActivateNewImage");
+    DEFINE_OTA_METHOD_NAME("ota_pal_ActivateNewImage_t");
+    ( void )
 
     /* FIX ME. */
     return kOTA_Err_Uninitialized;

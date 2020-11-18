@@ -526,8 +526,9 @@ OTA_Err_t IRAM_ATTR prvPAL_ResetDevice( void )
     return kOTA_Err_None;
 }
 
-OTA_Err_t prvPAL_ActivateNewImage( void )
+OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
     if( ota_ctx.cur_ota != NULL )
     {
         if( aws_esp_ota_end( ota_ctx.update_handle ) != ESP_OK )

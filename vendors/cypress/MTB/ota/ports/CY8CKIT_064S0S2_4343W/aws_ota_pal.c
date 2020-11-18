@@ -911,8 +911,9 @@ int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
  * @return The OTA PAL layer error code combined with the MCU specific error code. See OTA Agent
  * error codes information in aws_ota_agent.h.
  */
-OTA_Err_t prvPAL_ActivateNewImage( void )
+OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
     configPRINTF( ("%s() \n", __func__) );
     prvPAL_ResetDevice();
     return kOTA_Err_None;

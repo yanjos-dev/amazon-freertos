@@ -449,8 +449,10 @@ OTA_Err_t prvPAL_ResetDevice( void )
 
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_ActivateNewImage( void )
+OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
+
     /* Return no error. Windows implementation simply does nothing on activate.
      * To run the new firmware image, double click the newly downloaded exe */
     return kOTA_Err_None;
