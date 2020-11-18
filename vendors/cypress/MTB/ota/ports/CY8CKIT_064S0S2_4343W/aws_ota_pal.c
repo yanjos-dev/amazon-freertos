@@ -477,7 +477,7 @@ static OTA_Err_t prvPAL_FileSignatureCheckStep( OTA_FileContext_t * const C, uin
  *
  * NOTE: This function is used for a tarball OTA file.
  *
- * This function is called from prvPAL_CloseFile().
+ * This function is called from ota_pal_CloseFile_t().
  *
  * @param[in] C         OTA file context information.
  *
@@ -643,7 +643,7 @@ OTA_Err_t ota_pal_CreateFileForRx_t( OTA_FileContext_t * const C )
  * kOTA_Err_BadSignerCert is returned for errors in the certificate itself.
  * kOTA_Err_FileClose is returned when closing the file fails.
  */
-OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t               result = kOTA_Err_None;
 
@@ -961,7 +961,7 @@ OTA_Err_t prvPAL_ResetDevice( void )
  *
  *   IMPORTANT NOTES:
  *
- *   Our implementation checks the signature on the call to prvPAL_CloseFile().
+ *   Our implementation checks the signature on the call to ota_pal_CloseFile_t().
  *   We assume that if the updated app is running in slot 0 that it is acceptable.
  *
  *   if prvPAL_SetPlatformImageState() is called and the sys_ctx is NULL, we are not in the process of downloading a new image.

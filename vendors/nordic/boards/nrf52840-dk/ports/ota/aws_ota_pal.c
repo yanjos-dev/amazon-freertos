@@ -255,12 +255,12 @@ int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t xError;
     ret_code_t xStatus;
 
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CloseFile" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CloseFile_t" );
 
     OTA_LOG_L1( "[%s] Erasing the flash memory was successful\n", OTA_METHOD_NAME );
 

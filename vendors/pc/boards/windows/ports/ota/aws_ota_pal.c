@@ -195,9 +195,9 @@ int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
 
 /* Close the specified file. This shall authenticate the file if it is marked as secure. */
 
-OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_CloseFile" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_CloseFile_t" );
 
     OTA_Err_t eResult = kOTA_Err_None;
     int32_t lWindowsError = 0;

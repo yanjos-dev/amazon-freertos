@@ -453,7 +453,7 @@ end:
 }
 
 /* Close the specified file. This shall authenticate the file if it is marked as secure. */
-OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t * const C )
+OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
 {
     OTA_Err_t result = kOTA_Err_None;
 

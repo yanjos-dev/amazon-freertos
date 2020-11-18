@@ -186,7 +186,7 @@ OTA_Err_t ota_pal_CreateFileForRx_t(OTA_FileContext_t *C)
                           SL_FS_CREATE_PUBLIC_WRITE | SL_FS_WRITE_BUNDLE_FILE |
                           SL_FS_CREATE_SECURE | SL_FS_CREATE_VENDOR_TOKEN |
                           SL_FS_CREATE_MAX_SIZE( OTA_MAX_MCU_IMAGE_SIZE ) );
-                /* The file remains open until the OTA agent calls prvPAL_CloseFile() after transfer or failure. */
+                /* The file remains open until the OTA agent calls ota_pal_CloseFile_t() after transfer or failure. */
                 lResult = sl_FsOpen( ( _u8* ) C->pucFilePath, ( _u32 ) ulFlags, ( _u32* ) &ulToken );
                 if ( lResult > 0 )
                 {
@@ -293,9 +293,9 @@ static int32_t prvCreateBootInfoFile( void )
 
 /* Close the specified file. This will also authenticate the file if it is marked as secure. */
 
-OTA_Err_t prvPAL_CloseFile( OTA_FileContext_t *C )
+OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t *C )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_CloseFile");
+    DEFINE_OTA_METHOD_NAME("ota_pal_CloseFile_t");
 
 	int32_t lResult;
     OTA_Err_t xReturnCode = kOTA_Err_Uninitialized;
