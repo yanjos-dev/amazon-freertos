@@ -99,12 +99,12 @@ OTA_Err_t prvPAL_Abort( OTA_FileContext_t * const C )
 /*-----------------------------------------------------------*/
 
 /* Write a block of data to the specified file. */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t ulOffset,
                            uint8_t * const pacData,
                            uint32_t ulBlockSize )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_WriteBlock" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_WriteBlock_t" );
 
     /* FIX ME. */
     return -1;

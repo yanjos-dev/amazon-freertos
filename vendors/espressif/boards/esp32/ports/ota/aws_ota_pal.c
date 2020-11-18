@@ -555,7 +555,7 @@ OTA_Err_t prvPAL_ActivateNewImage( void )
 }
 
 /* Write a block of data to the specified file. */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t iOffset,
                            uint8_t * const pacData,
                            uint32_t iBlockSize )

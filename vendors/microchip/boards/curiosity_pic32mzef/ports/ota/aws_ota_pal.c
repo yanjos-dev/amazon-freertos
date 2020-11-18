@@ -297,7 +297,7 @@ OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * C )
 /* Write a block of data to the specified file.
  * Returns the number of bytes written on success or negative error code.
  */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t ulOffset,
                            uint8_t * const pcData,
                            uint32_t ulBlockSize )

@@ -444,7 +444,7 @@ static OTA_Err_t prvPAL_FileSignatureCheckInit( OTA_FileContext_t * const C )
  *
  * NOTE: This function is used for a tarball OTA file.
  *
- * This function is called from prvPAL_WriteBlock().
+ * This function is called from ota_pal_WriteBlock_t().
  *
  * @param[in] C         OTA file context information.
  * @param[in] buffer    current buffer to include in signature check
@@ -778,7 +778,7 @@ _exit_CloseFile:
  *
  * @return The number of bytes written on a success, or a negative error code from the platform abstraction layer.
  */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t ulOffset,
                            uint8_t * const pcData,
                            uint32_t ulBlockSize )

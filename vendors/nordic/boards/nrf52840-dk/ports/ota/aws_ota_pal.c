@@ -229,12 +229,12 @@ OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 }
 /*-----------------------------------------------------------*/
 
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t ulOffset,
                            uint8_t * const pacData,
                            uint32_t ulBlockSize )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_WriteBlock" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_WriteBlock_t" );
 
     /* We assume that the flash is already erased by this address (it should be, as we erase it in the
      * ota_pal_CreateFileForRx_t, but the second write to the same position can break this invariant.

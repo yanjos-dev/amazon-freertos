@@ -342,7 +342,7 @@ OTA_Err_t ota_pal_Abort_t( OTA_FileContext_t * const C )
 /*-----------------------------------------------------------*/
 
 /* Write a block of data to the specified file. */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
                            uint32_t ulOffset,
                            uint8_t * const pacData,
                            uint32_t ulBlockSize )
@@ -352,7 +352,7 @@ int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C,
     static uint8_t flash_block_array[FLASH_CF_MIN_PGM_SIZE];
 	uint8_t *packet_buffer;
 
-    DEFINE_OTA_METHOD_NAME( "prvPAL_WriteBlock" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_WriteBlock_t" );
 	OTA_LOG_L1("[%s] is called.\r\n", OTA_METHOD_NAME);
 
 	xSemaphoreTake(xSemaphoreWriteBlock, portMAX_DELAY);

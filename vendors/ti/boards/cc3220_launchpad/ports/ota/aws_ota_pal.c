@@ -501,9 +501,9 @@ OTA_PAL_ImageState_t prvPAL_GetPlatformImageState ( void )
 /* Write a block of data to the specified file.
  * Returns the most recent number of bytes written upon success or a negative error code.
  */
-int16_t prvPAL_WriteBlock( OTA_FileContext_t * const C, uint32_t ulOffset, uint8_t * const pcData, uint32_t ulBlockSize )
+int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C, uint32_t ulOffset, uint8_t * const pcData, uint32_t ulBlockSize )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_WriteBlock");
+    DEFINE_OTA_METHOD_NAME("ota_pal_WriteBlock_t");
 
 	int32_t lResult;
 	uint32_t ulWritten = 0;
