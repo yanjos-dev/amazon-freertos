@@ -181,7 +181,7 @@ static OTA_ImageState_t current_OTA_ImageState = eOTA_ImageState_Unknown;
 /**
  * @brief Last time we ran a signature check
  *
- * Keep track of the last signature check value for prvPAL_SetPlatformImageState
+ * Keep track of the last signature check value for ota_pal_SetPlatformImageState_t
  */
 static OTA_Err_t last_signature_check;
 /***********************************************************************
@@ -967,17 +967,18 @@ OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
  *   Our implementation checks the signature on the call to ota_pal_CloseFile_t().
  *   We assume that if the updated app is running in slot 0 that it is acceptable.
  *
- *   if prvPAL_SetPlatformImageState() is called and the sys_ctx is NULL, we are not in the process of downloading a new image.
+ *   if ota_pal_SetPlatformImageState_t() is called and the sys_ctx is NULL, we are not in the process of downloading a new image.
  *      if the eState is Rejected or Aborted, it pertains to the in-process download (or invalid job) for Secondary Slot.
  *      We could erase the secondary slot, but we do that each new download start, and will not consider new download OK if not complete.
  *
  */
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
     OTA_Err_t   result = kOTA_Err_None;
+    ( void ) C;
 
-    PRINT_eSTATE( "-------------------------> prvPAL_SetPlatformImageState() curr eState:", current_OTA_ImageState);
-    PRINT_eSTATE( "-------------------------> prvPAL_SetPlatformImageState() new  eSTATE:", eState);
+    PRINT_eSTATE( "-------------------------> ota_pal_SetPlatformImageState_t() curr eState:", current_OTA_ImageState);
+    PRINT_eSTATE( "-------------------------> ota_pal_SetPlatformImageState_t() new  eSTATE:", eState);
     PRINT_SYSTEM_CONTEXT_PTR();
     PRINT_BOOT_SWAP_TYPE(NULL, boot_swap_type());
 
@@ -1042,7 +1043,7 @@ OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
     current_OTA_ImageState = eState;
 
     PRINT_BOOT_SWAP_TYPE(NULL, boot_type);
-    PRINT_eSTATE( "-------------------------> prvPAL_SetPlatformImageState() current  eSTATE:", eState);
+    PRINT_eSTATE( "-------------------------> ota_pal_SetPlatformImageState_t() current  eSTATE:", eState);
     PRINT_SYSTEM_CONTEXT_PTR();
     PRINT_BOOT_SWAP_TYPE(NULL, boot_type);
 

@@ -238,7 +238,7 @@ OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
                         cOTA_JSON_FileSignatureKey, eResult );
 
 			/* If we fail to verify the file signature that means the image is not valid. We need to set the image state to aborted. */
-			prvPAL_SetPlatformImageState( eOTA_ImageState_Aborted );
+			ota_pal_SetPlatformImageState_t( eOTA_ImageState_Aborted );
 
         }
     }
@@ -466,12 +466,14 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
  * On Windows, the state of the OTA image is stored in PlaformImageState.txt.
  */
 
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_SetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_SetPlatformImageState_t" );
 
     OTA_Err_t eResult = kOTA_Err_None;
     FILE * pstPlatformImageState;
+
+    ( void ) C;
 
     if( eState != eOTA_ImageState_Unknown && eState <= eOTA_LastImageState )
     {

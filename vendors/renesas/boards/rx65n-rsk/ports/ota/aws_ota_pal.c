@@ -686,14 +686,16 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
 	flash_interrupt_config_t cb_func_info;
 
-    DEFINE_OTA_METHOD_NAME( "prvPAL_SetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_SetPlatformImageState_t" );
     OTA_LOG_L1("[%s] is called.\r\n", OTA_METHOD_NAME);
 
     OTA_Err_t eResult = kOTA_Err_Uninitialized;
+
+    ( void ) C;
 
 	/* Save the image state to eSavedAgentState. */
 	if (eOTA_ImageState_Testing == load_firmware_control_block.eSavedAgentState)

@@ -376,14 +376,16 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
  * For the TI CC3220SF, commit the file bundle if the state == eOTA_ImageState_Accepted.
  */
 
-OTA_Err_t prvPAL_SetPlatformImageState (OTA_ImageState_t eState)
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_SetPlatformImageState");
+    DEFINE_OTA_METHOD_NAME("ota_pal_SetPlatformImageState_t");
 
 	int32_t lResult;
     SlFsControl_t FsControl;
     FsControl.IncludeFilters = 0U;
     OTA_Err_t xReturnCode = kOTA_Err_Uninitialized;
+
+    ( void ) C;
 
 	if (eState == eOTA_ImageState_Accepted)
 	{

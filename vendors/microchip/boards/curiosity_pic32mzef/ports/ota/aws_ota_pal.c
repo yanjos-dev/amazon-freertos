@@ -675,15 +675,17 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 /* Platform specific handling of the last transferred OTA file.
  * Commit the image if the state == eOTA_ImageState_Accepted.
  */
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_SetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_SetPlatformImageState_t" );
 
     BootImageDescriptor_t xDescCopy;
     OTA_Err_t eResult = kOTA_Err_Uninitialized;
-
     /* Descriptor handle for the image being executed, which is always the lower bank. */
     const BootImageDescriptor_t * pxAppImgDesc;
+    
+    ( void ) C;
+
     pxAppImgDesc = ( const BootImageDescriptor_t * ) KVA0_TO_KVA1( pcFlashLowerBankStart ); /*lint !e923 !e9027 !e9029 !e9033 !e9079 !e9078 !e9087 Please see earlier lint comment header. */
     xDescCopy = *pxAppImgDesc;                                                              /* Copy image descriptor from flash into RAM struct. */
 

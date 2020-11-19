@@ -388,10 +388,13 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_SetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_SetPlatformImageState_t" );
     OTA_Err_t xStatus = kOTA_Err_None;
+
+    ( void ) C;
+
     if (xFlashEventGrp == NULL){
         /* Create the event group for flash events */
         xFlashEventGrp = xEventGroupCreate();

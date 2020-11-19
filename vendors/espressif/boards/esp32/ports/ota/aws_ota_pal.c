@@ -633,10 +633,12 @@ static void disable_rtc_wdt()
     rtc_wdt_disable();
 }
 
-OTA_Err_t prvPAL_SetPlatformImageState( OTA_ImageState_t eState )
+OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageState_t eState )
 {
     OTA_Err_t eResult = kOTA_Err_None;
     int state;
+
+    ( void ) C;
 
     ESP_LOGI( TAG, "%s, %d", __func__, eState );
 
