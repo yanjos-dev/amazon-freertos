@@ -1081,11 +1081,13 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
  * BOOT_SWAP_TYPE_PANIC    0xff Swapping encountered an unrecoverable error
  */
 
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
     OTA_PAL_ImageState_t result = eOTA_PAL_ImageState_Unknown;
 
-    PRINT_eSTATE(  "<------------------------- prvPAL_GetPlatformImageState() current  eSTATE:", current_OTA_ImageState);
+    ( void ) C;
+
+    PRINT_eSTATE(  "<------------------------- ota_pal_GetPlatformImageState_t() current  eSTATE:", current_OTA_ImageState);
     PRINT_SYSTEM_CONTEXT_PTR();
     PRINT_BOOT_SWAP_TYPE(NULL, boot_swap_type());
 
@@ -1114,7 +1116,7 @@ OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
         result = eOTA_ImageState_Unknown;
     }
 
-    PRINT_PAL_STATE( "<------------------------- prvPAL_GetPlatformImageState() DONE: ", result);
+    PRINT_PAL_STATE( "<------------------------- ota_pal_GetPlatformImageState_t() DONE: ", result);
     return result;
 }
 

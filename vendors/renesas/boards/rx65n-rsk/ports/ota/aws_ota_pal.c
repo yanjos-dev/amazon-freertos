@@ -774,12 +774,14 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
 }
 /*-----------------------------------------------------------*/
 
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_GetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_GetPlatformImageState_t" );
     OTA_LOG_L1("[%s] is called.\r\n", OTA_METHOD_NAME);
 
 	OTA_PAL_ImageState_t ePalState = eOTA_PAL_ImageState_Unknown;
+
+    ( void ) C;
 
 	switch (load_firmware_control_block.eSavedAgentState)
 	{
@@ -799,7 +801,7 @@ OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
 			break;
 	}
 
-	OTA_LOG_L1("Function call: prvPAL_GetPlatformImageState: [%d]\r\n", ePalState);
+	OTA_LOG_L1("Function call: ota_pal_GetPlatformImageState_t: [%d]\r\n", ePalState);
     return ePalState; /*lint !e64 !e480 !e481 I/O calls and return type are used per design. */
 }
 /*-----------------------------------------------------------*/

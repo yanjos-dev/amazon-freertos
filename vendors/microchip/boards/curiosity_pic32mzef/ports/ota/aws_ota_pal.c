@@ -838,11 +838,13 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
  * we assume there is something wrong with the firmware and reset the device,
  * causing it to rollback to the previous code.
  */
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
     BootImageDescriptor_t xDescCopy;
     OTA_PAL_ImageState_t eImageState = eOTA_PAL_ImageState_Invalid;
     const BootImageDescriptor_t * pxAppImgDesc;
+
+    ( void ) C;
 
     pxAppImgDesc = ( const BootImageDescriptor_t * ) KVA0_TO_KVA1( pcFlashLowerBankStart ); /*lint !e923 !e9027 !e9029 !e9033 !e9079 !e9078 !e9087 Please see earlier lint comment header. */
     xDescCopy = *pxAppImgDesc;

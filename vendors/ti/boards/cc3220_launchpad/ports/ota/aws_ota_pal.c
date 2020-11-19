@@ -459,9 +459,9 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
  *   eOTA_PAL_ImageState_Valid         (new firmware is valid/committed)
  *   eOTA_PAL_ImageState_Invalid       (new firmware is invalid/rejected)
  */
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState ( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_GetPlatformImageState");
+    DEFINE_OTA_METHOD_NAME("ota_pal_GetPlatformImageState_t");
 
     /* Specific name of the CC3220SF MCU firmware image file per CC3220SF documentation. */
     static const _u8 pcTI_FW_Filename[] = "/sys/mcuflashimg.bin";
@@ -469,6 +469,8 @@ OTA_PAL_ImageState_t prvPAL_GetPlatformImageState ( void )
     int32_t lResult;
     SlFsFileInfo_t xFileInfo = { 0U };                          /* MISRA-C requirement. */
     OTA_PAL_ImageState_t eState = eOTA_PAL_ImageState_Unknown;
+
+    ( void ) C;
 
     lResult = sl_FsGetInfo( pcTI_FW_Filename, OTA_VENDOR_TOKEN, &xFileInfo );
     if ( lResult == 0 )

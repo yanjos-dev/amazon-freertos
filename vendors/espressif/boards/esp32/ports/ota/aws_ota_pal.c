@@ -584,10 +584,12 @@ int16_t ota_pal_WriteBlock_t( OTA_FileContext_t * const C,
     return iBlockSize;
 }
 
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState()
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
     OTA_PAL_ImageState_t eImageState = eOTA_PAL_ImageState_Unknown;
     uint32_t ota_flags;
+
+    ( void ) C;
 
     ESP_LOGI( TAG, "%s", __func__ );
 

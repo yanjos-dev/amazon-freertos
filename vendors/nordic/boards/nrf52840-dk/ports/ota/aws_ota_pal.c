@@ -459,13 +459,15 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
 }
 /*-----------------------------------------------------------*/
 
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_GetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_GetPlatformImageState_t" );
 
     OTA_PAL_ImageState_t xImageState = eOTA_PAL_ImageState_Invalid;
 
     ImageDescriptor_t * descriptor = ( ImageDescriptor_t * ) ( otapalFIRST_BANK_START );
+
+    ( void ) C;
 
     switch( descriptor->usImageFlags )
     {

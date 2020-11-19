@@ -529,14 +529,16 @@ OTA_Err_t ota_pal_SetPlatformImageState_t( OTA_FileContext_t const C, OTA_ImageS
  * causing it to rollback to the previous code. On Windows, this is not
  * fully simulated as there is no easy way to reset the simulated device.
  */
-OTA_PAL_ImageState_t prvPAL_GetPlatformImageState( void )
+OTA_PAL_ImageState_t ota_pal_GetPlatformImageState_t( OTA_FileContext_t const C )
 {
     /* FIXME: This function should return OTA_PAL_ImageState_t, but it doesn't. */
-    DEFINE_OTA_METHOD_NAME( "prvPAL_GetPlatformImageState" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_GetPlatformImageState_t" );
 
     FILE * pstPlatformImageState;
 	OTA_ImageState_t eSavedAgentState = eOTA_ImageState_Unknown;
 	OTA_PAL_ImageState_t ePalState = eOTA_PAL_ImageState_Unknown;
+
+    ( void ) C;
 
     pstPlatformImageState = fopen( "PlatformImageState.txt", "r+b" ); /*lint !e586
                                                                        * C standard library call is being used for portability. */
