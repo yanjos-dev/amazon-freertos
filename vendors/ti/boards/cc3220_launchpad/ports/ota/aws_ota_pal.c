@@ -200,7 +200,7 @@ OTA_Err_t ota_pal_CreateFileForRx_t(OTA_FileContext_t *C)
                     {
                         #ifndef FREERTOS_ENABLE_UNIT_TESTS
                         /* System is in an inconsistent state and must be rebooted. */
-                        if ( prvPAL_ResetDevice() != kOTA_Err_None )
+                        if ( ota_pal_ResetDevice_t() != kOTA_Err_None )
                         {
                             OTA_LOG_L1("[%s] Failed to reset the device via software.\r\n", OTA_METHOD_NAME );
                         }
@@ -339,9 +339,10 @@ OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t *C )
 
 /* Reset the device. */
 
-OTA_Err_t prvPAL_ResetDevice( void )
+OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_ResetDevice");
+    DEFINE_OTA_METHOD_NAME("ota_pal_ResetDevice_t");
+    ( void ) C;
 
     OTA_LOG_L1( "[%s] Stopping Simplelink and resetting the device.\r\n", OTA_METHOD_NAME );
 
@@ -367,7 +368,7 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
     ( void ) C;
 
     OTA_LOG_L1( "[%s] Activating the new MCU image.\r\n", OTA_METHOD_NAME );
-    return prvPAL_ResetDevice();
+    return ota_pal_ResetDevice_t();
 }
 
 

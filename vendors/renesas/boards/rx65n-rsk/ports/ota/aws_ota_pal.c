@@ -635,9 +635,10 @@ static uint8_t * prvPAL_ReadAndAssumeCertificate( const uint8_t * const pucCertN
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_ResetDevice( void )
+OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME("prvPAL_ResetDevice");
+    DEFINE_OTA_METHOD_NAME("ota_pal_ResetDevice_t");
+    ( void ) C;
 
     OTA_LOG_L1( "[%s] Resetting the device.\r\n", OTA_METHOD_NAME );
 
@@ -679,7 +680,7 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 
     /* reset for self testing */
 	vTaskDelay(5000);
-	prvPAL_ResetDevice();	/* no return from this function */
+	ota_pal_ResetDevice_t();	/* no return from this function */
 
     return kOTA_Err_None;
 }

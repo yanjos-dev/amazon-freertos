@@ -518,8 +518,10 @@ OTA_Err_t ota_pal_CloseFile_t( OTA_FileContext_t * const C )
     return result;
 }
 
-OTA_Err_t IRAM_ATTR prvPAL_ResetDevice( void )
+OTA_Err_t IRAM_ATTR ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
+
     /* Short delay for debug log output before reset. */
     vTaskDelay( kOTA_HalfSecondDelay );
     esp_restart();
@@ -535,7 +537,7 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
         {
             ESP_LOGE( TAG, "aws_esp_ota_end failed!" );
             esp_partition_erase_range( ota_ctx.update_partition, 0, ota_ctx.update_partition->size );
-            prvPAL_ResetDevice();
+            ota_pal_ResetDevice_t();
         }
 
         esp_err_t err = aws_esp_ota_set_boot_partition( ota_ctx.update_partition );
@@ -547,11 +549,11 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
             _esp_ota_ctx_clear( &ota_ctx );
         }
 
-        prvPAL_ResetDevice();
+        ota_pal_ResetDevice_t();
     }
 
     _esp_ota_ctx_clear( &ota_ctx );
-    prvPAL_ResetDevice();
+    ota_pal_ResetDevice_t();
     return kOTA_Err_None;
 }
 

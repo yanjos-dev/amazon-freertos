@@ -441,8 +441,10 @@ static uint8_t * prvPAL_ReadAndAssumeCertificate( const uint8_t * const pucCertN
 
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_ResetDevice( void )
+OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
+
     /* Return no error.  Windows implementation does not reset device. */
     return kOTA_Err_None;
 }

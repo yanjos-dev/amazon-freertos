@@ -915,7 +915,7 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
 {
     ( void ) C;
     configPRINTF( ("%s() \n", __func__) );
-    prvPAL_ResetDevice();
+    ota_pal_ResetDevice_t();
     return kOTA_Err_None;
 }
 
@@ -930,8 +930,10 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
  * @return The OTA PAL layer error code combined with the MCU specific error code. See OTA Agent
  * error codes information in aws_ota_agent.h.
  */
-OTA_Err_t prvPAL_ResetDevice( void )
+OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
+    ( void ) C;
+
     /* we want to wait a bit when in DEBUG builds so the logging mechanism can finish before resetting */
     vTaskDelay(pdMS_TO_TICKS( 1000UL ));
     configPRINTF( ("%s()   RESETTING NOW !!!!\n", __func__) );

@@ -367,9 +367,11 @@ static uint8_t * prvPAL_ReadAndAssumeCertificate( const uint8_t * const pucCertN
 }
 /*-----------------------------------------------------------*/
 
-OTA_Err_t prvPAL_ResetDevice( void )
+OTA_Err_t ota_pal_ResetDevice_t( OTA_FileContext_t const C )
 {
-    DEFINE_OTA_METHOD_NAME( "prvPAL_ResetDevice" );
+    DEFINE_OTA_METHOD_NAME( "ota_pal_ResetDevice_t" );
+    ( void ) C;
+
     NVIC_SystemReset();
     return kOTA_Err_ResetNotSupported;
 }
@@ -381,7 +383,7 @@ OTA_Err_t ota_pal_ActivateNewImage_t( OTA_FileContext_t const C )
     ( void ) C;
 
     /* FIX ME. */
-    prvPAL_ResetDevice();
+    ota_pal_ResetDevice_t();
     return kOTA_Err_Uninitialized;
 }
 /*-----------------------------------------------------------*/
